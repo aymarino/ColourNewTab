@@ -9,6 +9,9 @@ function dotime(){
     pm = true;
     var americanHours = hours - 12;
   }
+  else if (hours == 0) {
+    var americanHours = 12;
+  }
   
   var mins = d.getMinutes();
   var secs = d.getSeconds();
@@ -26,6 +29,8 @@ function dotime(){
   $("#d").html(date);
 
   if (pm) $("#t").html(americanHours + " : " + mins + " : " + secs + "&nbsp; PM");
+  else if (hours == 0)
+    $("#t").html(americanHours + " : " + mins + " : " + secs + "&nbsp; AM");
   else $("#t").html(hours + " : " + mins +" : " + secs + "&nbsp; AM");
   $("#h").html(hex);
   
