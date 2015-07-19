@@ -1,3 +1,7 @@
+var monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
 function dotime(){
   $("body").css({"transition": "all 0.8s", "-webkit-transition": "all 0.8s"});
   
@@ -24,13 +28,14 @@ function dotime(){
 
   var colour = curTime[0] + curTime[1] + curTime[2];
 
-  $("#d").html(date);
+  $("#dtc").html(date + ' | ' + curTimeStr + ' | ' + '#' + colour);
   $("#left").html(timeLeftStr);
-  $("#t").html(curTimeStr);
-  $("#h").html('#' + colour);
+  $("#day").html('Day: ' + getDayStr(d.getDate()));
+  $("#month").html('Month: ' + monthNames[d.getMonth()]);
+  $("#year").html('Year: ' + d.getFullYear());
   
   var inverseColor = (0xFFFFFF - parseInt(colour, 16)).toString(16);
-  drawProgress(totalSeconds / (60 * 60 * 24), inverseColor);
+  drawProgress(d, inverseColor);
   document.body.style.background = '#' + colour;
   
   setTimeout(function(){ dotime();}, 1000);
@@ -51,6 +56,13 @@ function formatTimeForDisplay(totalSecs, isAmericanDisplay) {
   if (secs < 10) secs = '0' + secs;
 
   return [hours.toString(), mins.toString(), secs.toString()];
+}
+
+function getDayStr(day) {
+  if (day % 10 == 1 && day != 11) return '' + day + 'st';
+  else if (day % 10 == 2 && day != 12) return '' + day + 'nd';
+  else if (day % 10 == 3 && day != 13) return '' + day + 'rd';
+  else return '' + day + 'th';
 }
 
 window.onload = dotime;

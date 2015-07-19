@@ -10,6 +10,8 @@
   <style>
     @media all and (max-width: 1024px) {
 
+    p  { font-family:"open sans"; font-size:10px; font-weight:300; color:
+      white; transition:all 0.6s; -webkit-transition:all 0.6s;}
     h1 { font-family:"open sans"; font-size:40px; font-weight:300; color:white; transition:all 0.6s; -webkit-transition:all 0.6s;}
     h2 { font-family:"open sans"; font-size:20px; font-weight:300; color:white; transition:all 0.6s; -webkit-transition:all 0.6s;}
 
@@ -17,6 +19,8 @@
 
     @media all and (min-width: 1024px) {
 
+    p  { font-family:"open sans"; font-size:20px; font-weight:300; color:
+      white; transition:all 0.6s; -webkit-transition:all 0.6s;}
     h1 { font-family:"open sans"; font-size:80px; font-weight:300; color:white; transition:all 0.6s; -webkit-transition:all 0.6s;}
     h2 { font-family:"open sans"; font-size:30px; font-weight:300; color:white; transition:all 0.6s; -webkit-transition:all 0.6s;}
 
@@ -28,11 +32,11 @@
 
 <body>
   <table><td height="100%" width="100%" align="center" valign="middle">
-  <h2 id="d">Date</h2><br>
-  <h1 id="t">Time</h1>
-  <canvas id="progress"></canvas>
+  <h2 id="dtc">DateTimeColour</h2>
   <h1 id="left">Time left in day</h1>
-  <h2 id="h">Colour</h2><br>
+  <p id="day">Day: </p><canvas id="dayProgress"></canvas>
+  <p id="month">Month: </p><canvas id="monthProgress"></canvas>
+  <p id="year">Year: </p><canvas id="yearProgress"></canvas>
   </td></table>
 
   <script src="time.js"></script>
